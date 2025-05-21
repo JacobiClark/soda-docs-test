@@ -194,36 +194,37 @@ function PageFeedback() {
 
   return (
     <BrowserOnly>
-    <div className="relative w-full mt-4">
-      <hr className="feedback-divider" />
+      {() => (
+        <div className="relative w-full mt-4">
+          <hr className="feedback-divider" />
 
-      {showSuccess ? (
-        <ShowSuccessMessage hideSubText={hideSubText} />
-      ) : (
-        <AskFeedback
-          setShowSuccess={setShowSuccess}
-          setReaction={setReaction}
-          setShowTextFeedback={setShowTextFeedback}
-        />
-      )}
+          {showSuccess ? (
+            <ShowSuccessMessage hideSubText={hideSubText} />
+          ) : (
+            <AskFeedback
+              setShowSuccess={setShowSuccess}
+              setReaction={setReaction}
+              setShowTextFeedback={setShowTextFeedback}
+            />
+          )}
 
-      {showTextFeedback && (
-        <div className="flex justify-center pt-1 space-x-2">
-          <textarea
-            className="w-[350px] rounded-md px-3 py-2 font-inter"
-            placeholder="Any additional comments?"
-            onChange={handleFeedbackTextChange}
-            value={feedbackText}
-          />
-          <button
-            className="feedback-button feedback-button-yes !w-[180px]"
-            onClick={() => sendTextFeedback()}
-          >
-            Send feedback
-          </button>
-        </div>
-      )}
-      </div>
+          {showTextFeedback && (
+            <div className="flex justify-center pt-1 space-x-2">
+              <textarea
+                className="w-[350px] rounded-md px-3 py-2 font-inter"
+                placeholder="Any additional comments?"
+                onChange={handleFeedbackTextChange}
+                value={feedbackText}
+              />
+              <button
+                className="feedback-button feedback-button-yes !w-[180px]"
+                onClick={() => sendTextFeedback()}
+              >
+                Send feedback
+              </button>
+            </div>
+          )}
+        </div>)}
     </BrowserOnly>
   );
 }
