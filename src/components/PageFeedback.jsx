@@ -191,7 +191,7 @@ function PageFeedback() {
     setHideSubText(true);
     setShowTextFeedback(false);
   };
-
+  return null;
   return (
     <BrowserOnly>
       {() => (
